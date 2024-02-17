@@ -124,6 +124,16 @@ O projeto utiliza o MongoDB, portanto, é necessário configurar o banco no arqu
 
 </div>
 
+<div style="text-align: center;">
+<img src="https://avatars.githubusercontent.com/u/123129229?v=4" style="width:100px; border-radius: 50%;}">
+
+**Ysabella Cristina**
+
+[![Portólio](https://img.shields.io/badge/meu_portfólio-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ysabeellaa)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ysabella-cristina/)
+
+</div>
+
 ## ©️ Licença
 
 Este projeto é licenciado sob a licença [MIT](https://choosealicense.com/licenses/mit/). Consulte o arquivo LICENSE para obter mais informações.
