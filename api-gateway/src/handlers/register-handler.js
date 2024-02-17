@@ -10,6 +10,7 @@ class RegisterHandler {
 
             return res.status(200).json(data);
         } catch (error) {
+            //TODO: Pq a resposta da API não está vindo com a mensagem de erro?
             res.status(error?.response?.status || 500).json({
                 error: error?.response?.data?.error || "Server Error ",
             });

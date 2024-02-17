@@ -20,7 +20,7 @@ class UserController {
 
             res.status(201).json(newUser);
         } catch (error) {
-            throw new UserException(error.message, error.status);
+            res.status(error.status || 500).json({ message: error.message });
         }
     }
 }
