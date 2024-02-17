@@ -11,6 +11,23 @@ O projeto do "AdaFood" é um aplicativo de delivery onde nele é possível cadas
 
 ## Tecnologias ulizadas
 
+### Dependências
+
+-   **axios**  
+    `npm i axios`
+
+-   **dotenv**  
+    `npm i express dotenv`
+
+-   **nodemon**  
+    `npm i nodemon`
+
+-   **yup**  
+    `npm i yup`
+
+-   **json web token**  
+    `npm i jsonwebtoken`
+
 ## Endpoints
 
 ### Api Gateway
@@ -36,6 +53,18 @@ body:
   "cpf": "000.000.000-00",
   "password": "senha",
   "isAdmin": false
+}
+```
+
+### Auth Service
+
+```
+POST /session - Cria uma sessão do usuário.
+
+body:
+{
+  "email": "usuario.exemplo@email.com",
+  "password": "senha",
 }
 ```
 
