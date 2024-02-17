@@ -17,7 +17,10 @@ class UserService {
 
             return newUser;
         } catch (error) {
-            console.error("Error in UserService create:", error);
+            console.error(
+                "Error while trying to create a new user: ",
+                error.message
+            );
             throw new UserException(error.message, error.status);
         }
     }
