@@ -4,7 +4,7 @@ class RegisterHandler {
     static async create(req, res) {
         try {
             const { data } = await axios.post(
-                `${process.env.REGISTER_SERVICE_BASE_URL}/create`,
+                `${process.env.REGISTER_SERVICE_BASE_URL}/register`,
                 req.body
             );
 

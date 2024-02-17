@@ -33,7 +33,7 @@ O projeto do "AdaFood" é um aplicativo de delivery onde nele é possível cadas
 ### Api Gateway
 
 ```
-POST /user - Redireciona para o microsserviço responsável por criar um usuário.
+POST /register - Redireciona para o microsserviço responsável por criar um usuário.
 ```
 
 ```
