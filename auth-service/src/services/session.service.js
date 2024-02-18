@@ -1,11 +1,10 @@
 const jwt = require("jsonwebtoken");
 
 class SessionService {
-    static create(user) {
+    static createToken(user) {
         return jwt.sign(
             {
                 id: user.id,
-                role: user.role,
             },
             process.env.JWT_SECRET_KEY,
             {
