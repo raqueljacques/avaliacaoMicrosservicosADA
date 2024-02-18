@@ -12,6 +12,7 @@ const UserSchema = mongoose.Schema({
     state: String,
     country: String,
     password: String,
+    //TODO: vai ter roles? papel de admin?
     isAdmin: Boolean,
 });
 
