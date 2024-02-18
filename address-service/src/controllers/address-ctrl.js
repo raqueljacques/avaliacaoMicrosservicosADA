@@ -7,7 +7,7 @@ class AddressController {
             const { cep, userId } = req.body;
 
             // Validação se o usuário está autenticado
-            const authUser = await UserService.userExistsById(id);
+            const authUser = await UserService.userExistsById(userId);
 
             if (!authUser) {
                 throw Exception("User not found", 404);

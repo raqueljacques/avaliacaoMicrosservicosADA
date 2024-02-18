@@ -2,9 +2,9 @@ const UserSchema = require("../schemas/User");
 
 class UserService {
     static async userExistsById(id) {
-        return (user = await UserSchema.findOne({
+        return await UserSchema.findOne({
             _id: id,
-        }));
+        });
     }
 
     static async updateById(id, data) {
@@ -18,13 +18,9 @@ class UserService {
             number: "00", //TODO: O número do endereço não é retornado pela API de CEP
         };
 
-        return (user = await UserSchema.findOneAndUpdate(
-            { _id: id },
-            mappedData,
-            {
-                new: true,
-            }
-        ));
+        return await UserSchema.findOneAndUpdate({ _id: id }, mappedData, {
+            new: true,
+        });
     }
 }
 

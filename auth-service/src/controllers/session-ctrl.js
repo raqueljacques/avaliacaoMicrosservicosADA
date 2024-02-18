@@ -26,7 +26,7 @@ class SessionController {
                 throw { status: 401, message: "Invalid Credentials" };
             }
 
-            const token = SessionService.create(user);
+            const token = SessionService.createToken(user);
 
             res.status(200).json({ token });
         } catch (error) {
