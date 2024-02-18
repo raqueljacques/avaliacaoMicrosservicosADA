@@ -140,4 +140,4 @@ Este projeto é licenciado sob a licença [MIT](https://choosealicense.com/licen
 
 ## 🙏🏻 Agradecimentos
 
-Gostaríamos de expressar nossa gratidão ao Professor Esdras.
+Gostaríamos de expressar nossa gratidão ao Professor Esdras!
