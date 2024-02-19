@@ -13,7 +13,9 @@ routes.post("/session", AuthHandler.login);
 
 routes.post("/auth", AuthHandler.verify);
 
-routes.post("/order", OrderHandler.create);
+routes.post("/order", authMiddleware, (req, res) => {
+    OrderHandler.create(req, res);
+});
 
 //TODO: UM Middleware pode funcionar fazendo uma requisição pro auth e usando o resultado disso no address handler?
 routes.post("/address", authMiddleware, (req, res) => {
