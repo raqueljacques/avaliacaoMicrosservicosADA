@@ -11,6 +11,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGO_DB_URL).then(() => {
     console.log("::: Mongo DB connected :::");
     app.listen(PORT, () =>
-        console.log(`Auth Service running on PORT:::${PORT}`)
+        console.log(`Register Service running on PORT:::${PORT}`)
     );
 });

@@ -1,5 +1,6 @@
 const axios = require("axios");
 const UserService = require("../services/user.service");
+const AddressException = require("../utils/errors/AddressException")
 
 class AddressController {
     static async getByCEP(req, res) {
@@ -10,12 +11,12 @@ class AddressController {
             const authUser = await UserService.userExistsById(userId);
 
             if (!authUser) {
-                throw Exception("User not found", 404);
+                throw new AddressException("User not found", 404);
             }
 
             // Validação básica do CEP
             if (!cep || cep.length !== 8 || !/^\d+$/.test(cep)) {
-                throw Exception("Invalid CEP", 400);
+                throw new AddressException("Invalid CEP", 400);
             }
 
             // Consulta a API Via CEP
@@ -25,7 +26,7 @@ class AddressController {
 
             // Verifica se o CEP é válido na API Via CEP
             if (response.data.erro) {
-                throw Exception("CEP not found", 404);
+                throw new AddressException("CEP not found", 404);
             }
 
             //Atualiza o endereço do usuário

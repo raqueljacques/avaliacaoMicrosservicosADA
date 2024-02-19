@@ -1,5 +1,6 @@
 const yup = require ('yup')
 const OrderService = require ('../services/order.service')
+const OrderException = require('../utils/errors/OrderException')
 
 class OrderController {
     static async create(req, res) {
@@ -12,7 +13,7 @@ class OrderController {
               }
             )
             if(!(await schema.isValid(newOrder))){
-              throw {message:'Order is not valid', status: 400}
+              throw new OrderException('Order is not valid', 400)
             }
             
             const order = await OrderService.create(newOrder) 
