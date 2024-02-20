@@ -1,6 +1,7 @@
 const yup = require("yup");
 const UserService = require("../services/user.service");
 const UserException = require("../utils/errors/UserException");
+const { sendNotification } = require("../config/rabbitmq")
 
 class UserController {
     static async create(req, res) {
@@ -17,6 +18,8 @@ class UserController {
             }
 
             const newUser = await UserService.create(user);
+
+            sendNotification('resgister-success', newUser.email)
 
             res.status(201).json(newUser);
         } catch (error) {

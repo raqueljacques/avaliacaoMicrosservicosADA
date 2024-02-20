@@ -1,6 +1,7 @@
 const yup = require ('yup')
 const OrderService = require ('../services/order.service')
 const OrderException = require('../utils/errors/OrderException')
+const { sendNotification } = require('../config/rabbitmq')
 
 class OrderController {
     static async create(req, res) {
@@ -15,8 +16,16 @@ class OrderController {
             if(!(await schema.isValid(newOrder))){
               throw new OrderException('Order is not valid', 400)
             }
+
+            const user = await OrderService.findUser(newOrder.userId)
+
+            if(!user){
+              throw new OrderException('User does not exists', 400)
+            }
             
             const order = await OrderService.create(newOrder) 
+
+            sendNotification('order-success', user.email)
 
             res.status(200).json(order);
         } catch (error) {
