@@ -7,8 +7,6 @@ O projeto do "AdaFood" é um aplicativo de delivery onde nele é possível cadas
 
 ![](https://img.shields.io/static/v1?label=Status&message=Em%20Desenvolvimento&color=informational)
 
-## Abrir e rodar o projeto
-
 ## Tecnologias ulizadas
 
 ### Dependências
@@ -38,34 +36,46 @@ POST /register - Redireciona para o microsserviço responsável por criar um usu
 
 ```
 POST /session - Redireciona para o microsserviço responsável por fazer o login do usuário.
+```
 
+```
+POST /auth - Verifica se um usuário está autenticado.
+```
+
+```
+POST /order - Redireciona para o microsserviço responsável por adicionar criar um pedido.
+```
+
+```
+POST /address -  Redireciona para o microsserviço responsável por adicionar o endereço do usuário.
 ```
 
 ### Register Service
 
 ```
 POST /register - Cria um novo usuário.
-
-body:
-{
-  "name": "Usuário Exemplo",
-  "email": "usuario.exemplo@email.com",
-  "cpf": "000.000.000-00",
-  "password": "senha",
-  "isAdmin": false
-}
 ```
 
 ### Auth Service
 
 ```
 POST /session - Cria uma sessão do usuário.
+```
 
-body:
-{
-  "email": "usuario.exemplo@email.com",
-  "password": "senha",
-}
+```
+POST /auth - Verifica a autenticação do usuário.
+```
+
+### Address Service
+
+```
+POST /address -  Adicionar o endereço do usuário.
+```
+
+### Order Service
+
+```
+POST /order -  Cria um pedido.
 ```
 
 ## Banco de Dados
