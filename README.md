@@ -7,7 +7,7 @@ O projeto do "AdaFood" é um aplicativo de delivery onde nele é possível cadas
 
 ![](https://img.shields.io/static/v1?label=Status&message=Em%20Desenvolvimento&color=informational)
 
-## Tecnologias ulizadas
+## Tecnologias utilizadas
 
 ### Dependências
 
@@ -25,6 +25,25 @@ O projeto do "AdaFood" é um aplicativo de delivery onde nele é possível cadas
 
 -   **json web token**  
     `npm i jsonwebtoken`
+
+-   **amqplib**  
+    `npm i amqplib`
+
+-   **nodemailer**  
+    `npm i nodemailer`
+
+## Para rodar o serviço de mensageria RabbitMQ
+
+### instalar o RabbitMQ 
+- Pelo Link: [Instalação RabbitMQ](https://rabbitmq.com/download.html)
+
+-   Com MAC, utilizando o gerenciador Homebrew:  `brew install rabbitmq`
+    
+      Após instalação, iniciar o servidor:
+          `brew services start rabbitmq `
+
+      Para derrubar após o uso:
+          `brew services stop rabbitmq`
 
 ## Endpoints
 
