@@ -1,7 +1,7 @@
 const yup = require("yup");
 const axios = require("axios");
 const UserService = require("../services/user.service");
-const AddressException = require("../utils/errors/AddressException")
+const AddressException = require("../utils/errors/AddressException");
 
 class AddressController {
     static async getByCEP(req, res) {
@@ -10,36 +10,35 @@ class AddressController {
 
             const schema = yup.object({
                 cep: yup.string().required(),
-                userId: yup.string().required()
+                userId: yup.string().required(),
             });
 
-            if(!(await schema.isValid(address))){
-                throw {message: "Address is not valid.", status: 400};
+            if (!(await schema.isValid(address))) {
+                throw { message: "Address is not valid.", status: 400 };
             }
 
-            // Validação se o usuário está autenticado
             const authUser = await UserService.userExistsById(address.userId);
 
             if (!authUser) {
                 throw new AddressException("User not found", 404);
             }
 
-            // Validação básica do CEP
-            if (!address.cep || address.cep.length !== 8 || !/^\d+$/.test(address.cep)) {
+            if (
+                !address.cep ||
+                address.cep.length !== 8 ||
+                !/^\d+$/.test(address.cep)
+            ) {
                 throw new AddressException("Invalid CEP", 400);
             }
 
-            // Consulta a API Via CEP
             const response = await axios.get(
                 `https://viacep.com.br/ws/${address.cep}/json/`
             );
 
-            // Verifica se o CEP é válido na API Via CEP
             if (response.data.erro) {
                 throw new AddressException("CEP not found", 404);
             }
 
-            //Atualiza o endereço do usuário
             const updatedUser = await UserService.updateById(
                 authUser._id,
                 response.data
